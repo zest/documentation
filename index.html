@@ -1,71 +1,441 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Documentation by zest</title>
+    <meta name="viewport" content="width=640">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Documentation by zest</title>
   </head>
+
   <body>
-    <div class="wrapper">
+    <a id="forkme_banner" href="https://github.com/zest/documentation">View on GitHub</a>
+    <div class="shell">
+
       <header>
-        <h1>Documentation</h1>
-        <p>because sometimes, jsdocs are just not enough :)</p>
-
-        <p class="view"><a href="https://github.com/zest/documentation">View the Project on GitHub <small>zest/documentation</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/zest/documentation/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/zest/documentation/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/zest/documentation">View On <strong>GitHub</strong></a></li>
-        </ul>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Documentation</h1>
+            <h2>because sometimes, jsdocs are just not enough :)</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
       </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/zest/documentation/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/zest/documentation/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
       </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="soul-infra--specifications" class="anchor" href="#soul-infra--specifications"><span class="octicon octicon-link"></span></a>soul-infra / specifications</h1>
+
+<blockquote>
+<p><strong>soul-infra</strong> is an integrator written on node. It integrates components to create an application. To integrate 
+successfully, it needs components to follow a specification. This module lists down the specifications for 
+developing components</p>
+</blockquote>
+
+<h2>
+<a name="components" class="anchor" href="#components"><span class="octicon octicon-link"></span></a>components</h2>
+
+<p>Components are blocks of code that can be combined together to create an application. Any soul application can have 
+one or more of the below components</p>
+
+<ol>
+<li>Application
+
+<ul>
+<li>An application is a runnable component that, when run, starts a node server and deploys itself</li>
+</ul>
+</li>
+<li>User
+
+<ul>
+<li>User Component manages application users. Users use applications to work on data and files. This component also 
+provides interfaces for authenticating, adding, modifying and deleting users.</li>
+</ul>
+</li>
+<li>Privilege
+
+<ul>
+<li>The Privilege component checks if a user has enough previlige to perform specific work on data and files. It 
+also provides interfaces for adding, modifying and deleting previliges, as well as for granting and revoking 
+privileges from users.</li>
+</ul>
+</li>
+<li>DataStore
+
+<ul>
+<li>The DataStore component allows persisting and modifying data for later use in the application.</li>
+</ul>
+</li>
+<li>FileStore
+
+<ul>
+<li>The FileStore component allows persisting and modifying files for later use in the application.</li>
+</ul>
+</li>
+</ol><h2>
+<a name="component-providers" class="anchor" href="#component-providers"><span class="octicon octicon-link"></span></a>component providers</h2>
+
+<p>Components can be served by <strong>ComponentProviders</strong>. ComponentProviders can be of two types:</p>
+
+<ol>
+<li>
+<strong>Native providers</strong> that use nodejs</li>
+<li>
+<strong>Non-Native providers</strong> that run on non native apis. The non-native providers will have adapters to adapt them to 
+node environment. The adapter for the below providers have to be implemented. Other adapters can be plugged in if 
+required.
+
+<ol>
+<li>
+<strong>REST Provider</strong> provides adapter for components that run on rest apis</li>
+</ol>
+</li>
+</ol><p>Every component is described by an interface in soul and must implement it. The component interfaces are summarized 
+below. For a detailed documentation, please go through the JSDocs</p>
+
+<h2>
+<a name="component-interfaces" class="anchor" href="#component-interfaces"><span class="octicon octicon-link"></span></a>component interfaces</h2>
+
+<ol>
+<li>
+<strong><code>base/Class</code></strong> is the base class for all classes in soul-infra and has the below methods
+
+<ol>
+<li>
+<strong><code>extend()</code></strong>
+
+<ul>
+<li>this is a static method that extends the class. All extended classes also have the same method.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<strong><code>base/ComponentProvider</code></strong> is the base class for all components and has the below methods
+
+<ol>
+<li>
+<strong><code>describe()</code></strong>
+
+<ul>
+<li>returns map of settings for the component with their description.</li>
+</ul>
+</li>
+<li>
+<strong><code>init</code></strong><code>(settings, resolver)</code>
+
+<ul>
+<li>initializes the component</li>
+</ul>
+</li>
+<li>
+<strong><code>export</code></strong><code>(stream)</code>
+
+<ul>
+<li>exports the component with objects into a stream</li>
+</ul>
+</li>
+<li>
+<strong><code>import</code></strong><code>(stream)</code>
+
+<ul>
+<li>imports the component from a stream</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<strong><code>base/RunnableProvider</code></strong> <code>extends base/ComponentProvider</code> is the base class for all 
+runnable components
+
+<ol>
+<li>
+<strong><code>run</code></strong><code>()</code>
+
+<ul>
+<li>runs the component</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<strong><code>components/ApplicationProvider</code></strong> <code>extends base/RunnableProvider</code> is an interface describing the 
+specifications for Application Components
+
+<ol>
+<li>
+<strong><code>run</code></strong><code>()</code>
+
+<ul>
+<li>starts the application using the settings specified</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<strong><code>components/UserProvider</code></strong> <code>extends base/ComponentProvider</code> is an interface describing the 
+specifications for User Components
+
+<ol>
+<li>
+<strong><code>create</code></strong><code>(user)</code>
+
+<ul>
+<li>persists a user</li>
+</ul>
+</li>
+<li>
+<strong><code>read</code></strong><code>(token)</code>
+
+<ul>
+<li>returns the user object from the token</li>
+</ul>
+</li>
+<li>
+<strong><code>update</code></strong><code>(user)</code>
+
+<ul>
+<li>updates the user object</li>
+</ul>
+</li>
+<li>
+<strong><code>remove</code></strong><code>(user)</code>
+
+<ul>
+<li>removes a user</li>
+</ul>
+</li>
+<li>
+<strong><code>authenticate</code></strong><code>(user)</code>
+
+<ul>
+<li>authenticates and returns a token</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<strong><code>components/PrivilegeProvider</code></strong> <code>extends base/ComponentProvider</code> is an interface describing the 
+specifications for User Privilege Components
+
+<ol>
+<li>
+<strong><code>create</code></strong><code>(privilege)</code>
+
+<ul>
+<li>persists a privilege</li>
+</ul>
+</li>
+<li>
+<strong><code>read</code></strong><code>(name)</code>
+
+<ul>
+<li>returns the privilege</li>
+</ul>
+</li>
+<li>
+<strong><code>update</code></strong><code>(privilege)</code>
+
+<ul>
+<li>updates the privilegeobject</li>
+</ul>
+</li>
+<li>
+<strong><code>remove</code></strong><code>(privilege)</code>
+
+<ul>
+<li>removes a privilege</li>
+</ul>
+</li>
+<li>
+<strong><code>allow</code></strong><code>(privilegeName, user)</code>
+
+<ul>
+<li>adds a privilege to a user</li>
+</ul>
+</li>
+<li>
+<strong><code>deny</code></strong><code>(privilegeName, user)</code>
+
+<ul>
+<li>removes a privilege from a user</li>
+</ul>
+</li>
+<li>
+<strong><code>isPrivileged</code></strong><code>(user, privilegeName)</code>
+
+<ul>
+<li>checks if a user has a privilege</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<strong><code>components/DataStoreProvider</code></strong> <code>extends base/ComponentProvider</code> is an interface describing the 
+specifications for Data Store Components
+
+<ol>
+<li>
+<strong><code>create</code></strong><code>(name, structure)</code>
+
+<ul>
+<li>creates a store and returns a store object</li>
+</ul>
+</li>
+<li>
+<strong><code>read</code></strong><code>(name)</code>
+
+<ul>
+<li>reads a store by name</li>
+</ul>
+</li>
+<li>
+<strong><code>update</code></strong><code>(name, structure)</code>
+
+<ul>
+<li>updates a store</li>
+</ul>
+</li>
+<li>
+<strong><code>remove</code></strong><code>(storeName)</code>
+
+<ul>
+<li>removes a store</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;store&gt;.create</code></strong><code>(storeName)</code>
+
+<ul>
+<li>adds a store item to the store</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;store&gt;.read</code></strong><code>(storeName, searchQuery)</code>
+
+<ul>
+<li>get an element from the store</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;store&gt;.update</code></strong><code>(storeName, item)</code>
+
+<ul>
+<li>updates a store item</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;store&gt;.remove</code></strong><code>(storeName, item)</code>
+
+<ul>
+<li>deletes a store item</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<strong><code>components/FileStoreProvider</code></strong> <code>extends base/ComponentProvider</code> is an interface describing the 
+specifications for File Store Components
+
+<ol>
+<li>
+<strong><code>&lt;directory&gt;.create</code></strong><code>(path, data)</code>
+
+<ul>
+<li>creates a file or a directory depending on if the path ends in /.</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;directory&gt;.read</code></strong><code>(path)</code>
+
+<ul>
+<li>gets contents of a directory</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;directory&gt;.update</code></strong><code>(oldPath, newPath)</code>
+
+<ul>
+<li>updates the name of a directory</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;directory&gt;.remove</code></strong><code>(path)</code>
+
+<ul>
+<li>deletes a directory</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;file&gt;.read</code></strong><code>(path)</code>
+
+<ul>
+<li>reads contents of a file</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;file&gt;.update</code></strong><code>(path, data)</code>
+
+<ul>
+<li>updates a file with new contents</li>
+</ul>
+</li>
+<li>
+<strong><code>&lt;file&gt;.remove</code></strong><code>(path)</code>
+
+<ul>
+<li>deletes a file</li>
+</ul>
+</li>
+<li>
+<strong><code>root</code></strong><code>()</code>
+
+<ul>
+<li>gets the root folder for the File Store</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+      </section>
+
       <footer>
-        <p>This project is maintained by <a href="https://github.com/zest">zest</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/zest">zest</a> can be found on <a href="https://github.com/zest/documentation">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
       </footer>
+
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
   </body>
 </html>
