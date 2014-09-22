@@ -1,0 +1,48 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300|Share+Tech+Mono);
+body {
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: 300;
+    line-height: 150%;
+    margin: 0;
+    margin: auto;
+}
+
+#zest-content {
+    margin: 0px auto;
+    width: 800px;
+}
+
+strong {
+    font-weight: 400;
+}
+
+code {
+    color: green;
+}
+
+code, pre {
+    font-family: 'Share Tech Mono';
+    font-size: 90%;
+}
+
+header {
+    text-align: center;
+    background: #e66000;
+    margin: 0;
+    padding: 40px;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 #000000;
+    font-size: 400%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: lower-roman;
+}
