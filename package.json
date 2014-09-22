@@ -1,6 +1,6 @@
 {
     "name": "documentation",
-    "description": "documentation has all necessary documentation on what is zest and how to use it",
+    "description": "what is zest and how to use it",
     "version": "0.0.1",
     "private": true,
     "scripts": {

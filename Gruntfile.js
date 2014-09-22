@@ -11,8 +11,13 @@ module.exports = function (grunt) {
     // for copying static files
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.initConfig({
+        // get this package details
         pkg: grunt.file.readJSON('package.json'),
-        clean: ['.out'],
+        // clean configuration
+        clean: [
+            '.out'
+        ],
+        // copy configuration
         copy : {
             statics: {
                 files: [
@@ -25,6 +30,7 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        // markdown parsing configuration
         markdown: {
             all: {
                 files: [{
@@ -34,6 +40,7 @@ module.exports = function (grunt) {
                     dest: '.out/site',
                     ext: '.html',
                     rename: function (dest, src) {
+                        // flattening the files. Themes wont work otherwise
                         return dest + '/' + src.replace(/\//g, '-');
                     }
                 }],
@@ -41,8 +48,10 @@ module.exports = function (grunt) {
                     template: './statics/template.jst',
                     templateContext: {},
                     postCompile: function(src) {
+                        // we need to update the links to work when files are flattened
                         return src.replace(/href=\"(.*?)\"/g, function (match, link) {
                             if(link.indexOf('http') === 0) {
+                                // do not touch an http or https link
                                 return match;
                             }
                             return 'href="' + link.replace(/\//g, '-').replace(/\.md$/, '.html') + '"';
@@ -72,6 +81,7 @@ module.exports = function (grunt) {
                 '**'
             ]
         },
+        // watch for file changes
         watch: {
             markdown: {
                 files: [
@@ -82,7 +92,7 @@ module.exports = function (grunt) {
             }
         }
     });
-    // document script
+    // markdown queue. this task is run everytime any markdown file changes during observe
     grunt.registerTask(
         'markdown-queue',
         [
@@ -91,6 +101,7 @@ module.exports = function (grunt) {
             'copy:statics'
         ]
     );
+    // observe task is run during development
     grunt.registerTask(
         'observe',
         [
@@ -98,11 +109,19 @@ module.exports = function (grunt) {
             'watch:markdown'
         ]
     );
+    // test is for testing in travis. it tries to compile all md files
     grunt.registerTask(
         'test',
         [
             'clean',
             'markdown:all'
+        ]
+    );
+    // observe is the default task
+    grunt.registerTask(
+        'default',
+        [
+            'observe'
         ]
     );
 };
