@@ -1,9 +1,14 @@
 'use strict';
 module.exports = function (grunt) {
+    // for parsing markdown files
     grunt.loadNpmTasks('grunt-markdown');
+    // for pushing the website to github site branch
     grunt.loadNpmTasks('grunt-gh-pages');
+    // for watching file changes
     grunt.loadNpmTasks('grunt-contrib-watch');
+    // for cleaning output directory
     grunt.loadNpmTasks('grunt-contrib-clean');
+    // for copying static files
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -27,11 +32,22 @@ module.exports = function (grunt) {
                     cwd: 'markdowns/',
                     src: ['**/*.md'],
                     dest: '.out/site',
-                    ext: '.html'
+                    ext: '.html',
+                    rename: function (dest, src) {
+                        return dest + '/' + src.replace(/\//g, '-');
+                    }
                 }],
                 options: {
                     template: './statics/template.jst',
                     templateContext: {},
+                    postCompile: function(src) {
+                        return src.replace(/href=\"(.*?)\"/g, function (match, link) {
+                            if(link.indexOf('http') === 0) {
+                                return match;
+                            }
+                            return 'href="' + link.replace(/\//g, '-').replace(/\.md$/, '.html') + '"';
+                        });
+                    },
                     markdownOptions: {
                         gfm: true,
                         highlight: 'manual'
