@@ -1,5 +1,5 @@
-# soul-infra / specifications
-> **soul-infra** is an integrator written on node. It integrates components to create an application. To integrate 
+# zest / specifications
+> **zest** is an integrator written on node. It integrates components to create an application. To integrate 
 > successfully, it needs components to follow a specification. This module lists down the specifications for 
 > developing components
 
@@ -37,7 +37,7 @@ below. For a detailed documentation, please go through the JSDocs
 
 ## component interfaces
 
-1. **`base/Class`** is the base class for all classes in soul-infra and has the below methods
+1. **`base/Class`** is the base class for all classes in zest and has the below methods
     1. **`extend()`**
         - this is a static method that extends the class. All extended classes also have the same method.
 2. **`base/ComponentProvider`** is the base class for all components and has the below methods

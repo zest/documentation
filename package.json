@@ -1,0 +1,35 @@
+{
+    "name": "documentation",
+    "description": "documentation has all necessary documentation on what is zest and how to use it",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "test": "./node_modules/.bin/grunt test"
+    },
+    "license": "Unlicense",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zest/documentation.git"
+    },
+    "bugs": {
+        "url": "https://github.com/zest/documentation/issues"
+    },
+    "maintainers": [
+        {
+            "name": "Pranav Jha",
+            "email": "jha.pranav.s@gmail.com",
+            "web": "http://about.me/pranavjha"
+        }
+    ],
+    "dependencies": {
+    },
+    "devDependencies": {
+        "grunt": "0.4.5",
+        "grunt-cli": "0.1.13",
+        "grunt-contrib-clean": "0.6.0",
+        "grunt-contrib-watch": "0.6.1",
+        "grunt-contrib-copy": "*",
+        "grunt-markdown": "0.6.1",
+        "grunt-gh-pages": "0.9.1"
+    }
+}
