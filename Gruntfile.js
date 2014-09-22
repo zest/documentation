@@ -82,4 +82,11 @@ module.exports = function (grunt) {
             'watch:markdown'
         ]
     );
+    grunt.registerTask(
+        'test',
+        [
+            'clean',
+            'markdown:all'
+        ]
+    );
 };
