@@ -347,10 +347,7 @@
 				</a>
             </td>
             <td>
-                <a href="https://coveralls.io/r/zest/base.resolver-cli">
-					<img src="http://img.shields.io/coveralls/zest/base.resolver-cli.svg?style=flat-square">
-					</img>
-				</a>
+                -
             </td>
             <td>
                 <a href="https://codeclimate.com/github/zest/base.resolver-cli">
@@ -387,10 +384,7 @@
 				</a>
             </td>
             <td>
-                <a href="https://coveralls.io/r/zest/base.gruntrunner">
-					<img src="http://img.shields.io/coveralls/zest/base.gruntrunner.svg?style=flat-square">
-					</img>
-				</a>
+                -
             </td>
             <td>
                 <a href="https://codeclimate.com/github/zest/base.gruntrunner">
@@ -419,3 +413,5 @@
         </tr>
     </tbody>
 </table>
+
+[<< back to index](index.md)
